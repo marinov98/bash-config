@@ -3,8 +3,11 @@ parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-PS1="\[$(tput setaf 69)\]\u";         # blue  user
-PS1+="\[$(tput setaf 88)\]@\h ";      # red host
+PS1="\[$(tput bold)\]\n";
+PS1+="\[$(tput setaf 69)\]\u";        # blue  user
+PS1+="\[$(tput setaf 252)\] at "; 
+PS1+="\[$(tput setaf 88)\]\h ";       # red host
+PS1+="\[$(tput setaf 252)\] in "
 PS1+="\[$(tput setaf 172)\]\W >> ";   # orange directories
 PS1+="\[$(tput setaf 184)\]\$(parse_git_branch) "; #github integration
 PS1+="\[$(tput sgr0)\]";
