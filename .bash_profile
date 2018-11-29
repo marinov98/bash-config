@@ -1,17 +1,14 @@
 ## Git integration
-Parse_git_branch() {
+parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-PS1="\[$(tput setaf 69)\]\u";       # blue  user
+PS1="\[$(tput setaf 69)\]\u";         # blue  user
 PS1+="\[$(tput setaf 88)\]@\h ";      # red host
-PS1+="\[$(tput setaf 184)\]\$(parse_git_branch)\ ";
-PS1+="\[$(tput setaf 172)\]\W >> "; # orange directories
+PS1+="\[$(tput setaf 172)\]\W >> ";   # orange directories
+PS1+="\[$(tput setaf 184)\]\$(parse_git_branch) "; #github integration
 PS1+="\[$(tput sgr0)\]";
 export PS1;
-
-
-#  Setting PATH for Python 3.6
 
 #   -----------------------------
 #   2. MAKE TERMINAL BETTER
