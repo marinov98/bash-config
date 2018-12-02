@@ -6,7 +6,7 @@ parse_git_branch() {
 PS1="\[$(tput bold)\]\n";
 PS1+="\[$(tput setaf 69)\]\u";        # blue  user
 PS1+="\[$(tput setaf 247)\] in "; 
-PS1+="\[$(tput setaf 88)\]\h ";       # red host
+PS1+="\[$(tput setaf 124)\]\h ";       # red host
 PS1+="\[$(tput setaf 247)\]at "
 PS1+="\[$(tput setaf 172)\]\W >> ";   # orange directories
 PS1+="\[$(tput setaf 184)\]\$(parse_git_branch) "; #github integration
