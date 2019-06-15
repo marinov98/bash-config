@@ -1,22 +1,23 @@
+## THIS IS MEANT FOR MAC 
+
+
 ## Git integration
 parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
+   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
+} 
+ 
 PS1="\[$(tput bold)\]\n";
-PS1+="\[$(tput setaf 69)\]\u";        # blue  user
-PS1+="\[$(tput setaf 247)\] in "; 
-PS1+="\[$(tput setaf 124)\]\h ";       # red host
-PS1+="\[$(tput setaf 247)\]at "
-PS1+="\[$(tput setaf 172)\]\W >> ";   # orange directories
-PS1+="\[$(tput setaf 184)\]\$(parse_git_branch) "; #github integration
+PS1+="\[$(tput setaf 39)\]Marinov ";        # blue  user
+PS1+="\[$(tput setaf 148)\]at: "
+PS1+="\[$(tput setaf 196)\]\W";   # red directories
+PS1+="\[$(tput setaf 162)\]\$(parse_git_branch) >> "; #github integration
 PS1+="\[$(tput sgr0)\]";
 export PS1;
-
+#
 #   -----------------------------
 #   2. MAKE TERMINAL BETTER
 #   -----------------------------
-
+#
 alias ls='ls -GFh'
 alias ls='ls -G'
 alias ll='ls -lG'
@@ -45,7 +46,18 @@ mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and ju
 trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
-
+#
 #### History Size
 export HISTSIZE=10000
 export HISTFILESIZE=120000
+
+# Powerline
+# function _update_ps1() {
+#     PS1=$(powerline-shell $?)
+# }
+
+# if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+#     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+# fi
+
+neofetch
